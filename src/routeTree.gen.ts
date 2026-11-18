@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContohSoalRouteImport } from './routes/contoh-soal'
+import { Route as KalkulatorRouteImport } from './routes/kalkulator'
+import { Route as KuisRouteImport } from './routes/kuis'
+import { Route as MateriRouteImport } from './routes/materi'
+import { Route as TentangRouteImport } from './routes/tentang'
+import { Route as VideoRouteImport } from './routes/video'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContohSoalRoute = ContohSoalRouteImport.update({
+  id: '/contoh-soal',
+  path: '/contoh-soal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KalkulatorRoute = KalkulatorRouteImport.update({
+  id: '/kalkulator',
+  path: '/kalkulator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KuisRoute = KuisRouteImport.update({
+  id: '/kuis',
+  path: '/kuis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MateriRoute = MateriRouteImport.update({
+  id: '/materi',
+  path: '/materi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TentangRoute = TentangRouteImport.update({
+  id: '/tentang',
+  path: '/tentang',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VideoRoute = VideoRouteImport.update({
+  id: '/video',
+  path: '/video',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contoh-soal': typeof ContohSoalRoute
+  '/kalkulator': typeof KalkulatorRoute
+  '/kuis': typeof KuisRoute
+  '/materi': typeof MateriRoute
+  '/tentang': typeof TentangRoute
+  '/video': typeof VideoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contoh-soal': typeof ContohSoalRoute
+  '/kalkulator': typeof KalkulatorRoute
+  '/kuis': typeof KuisRoute
+  '/materi': typeof MateriRoute
+  '/tentang': typeof TentangRoute
+  '/video': typeof VideoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contoh-soal': typeof ContohSoalRoute
+  '/kalkulator': typeof KalkulatorRoute
+  '/kuis': typeof KuisRoute
+  '/materi': typeof MateriRoute
+  '/tentang': typeof TentangRoute
+  '/video': typeof VideoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contoh-soal'
+    | '/kalkulator'
+    | '/kuis'
+    | '/materi'
+    | '/tentang'
+    | '/video'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contoh-soal'
+    | '/kalkulator'
+    | '/kuis'
+    | '/materi'
+    | '/tentang'
+    | '/video'
+  id:
+    | '__root__'
+    | '/'
+    | '/contoh-soal'
+    | '/kalkulator'
+    | '/kuis'
+    | '/materi'
+    | '/tentang'
+    | '/video'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContohSoalRoute: typeof ContohSoalRoute
+  KalkulatorRoute: typeof KalkulatorRoute
+  KuisRoute: typeof KuisRoute
+  MateriRoute: typeof MateriRoute
+  TentangRoute: typeof TentangRoute
+  VideoRoute: typeof VideoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contoh-soal': {
+      id: '/contoh-soal'
+      path: '/contoh-soal'
+      fullPath: '/contoh-soal'
+      preLoaderRoute: typeof ContohSoalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kalkulator': {
+      id: '/kalkulator'
+      path: '/kalkulator'
+      fullPath: '/kalkulator'
+      preLoaderRoute: typeof KalkulatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kuis': {
+      id: '/kuis'
+      path: '/kuis'
+      fullPath: '/kuis'
+      preLoaderRoute: typeof KuisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/materi': {
+      id: '/materi'
+      path: '/materi'
+      fullPath: '/materi'
+      preLoaderRoute: typeof MateriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tentang': {
+      id: '/tentang'
+      path: '/tentang'
+      fullPath: '/tentang'
+      preLoaderRoute: typeof TentangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/video': {
+      id: '/video'
+      path: '/video'
+      fullPath: '/video'
+      preLoaderRoute: typeof VideoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContohSoalRoute: ContohSoalRoute,
+  KalkulatorRoute: KalkulatorRoute,
+  KuisRoute: KuisRoute,
+  MateriRoute: MateriRoute,
+  TentangRoute: TentangRoute,
+  VideoRoute: VideoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
